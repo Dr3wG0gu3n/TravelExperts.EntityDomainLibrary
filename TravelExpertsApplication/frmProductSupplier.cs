@@ -12,9 +12,9 @@ using TravelExperts.EntityDomainLibrary;
 
 namespace TravelExpertsApplication
 {
-    public partial class Form1 : Form
+    public partial class frmProductSupplier : Form
     {
-        public Form1()
+        public frmProductSupplier()
         {
             InitializeComponent();
         }
