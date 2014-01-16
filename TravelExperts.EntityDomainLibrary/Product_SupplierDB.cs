@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* This Class was written by all 4 members of our Group (Andrew, YuWen, Chris, and Vishnu)
+ * on jan. 16, 2014 as a bridge between the Products and Suppliers tables
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +13,7 @@ namespace TravelExperts.EntityDomainLibrary
 {
     public static class Product_SupplierDB
     {
-        //public int GetProductId(int supplierId)
-        //{
-        //}
+
         public List<Product> GetAllProducts(int supplierId)
         {
             List<Product> products = new List<Product>();
@@ -50,9 +52,6 @@ namespace TravelExperts.EntityDomainLibrary
             }
             
         }
-        //public int getSupplierId(int productId)
-        //{
-        //}
 
         public List<Supplier> GetAllSuppliers(int productId)
         {
