@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelExperts.EntityDomainLibrary", "TravelExperts.EntityDomainLibrary\TravelExperts.EntityDomainLibrary.csproj", "{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelExpertsApplication", "TravelExpertsApplication\TravelExpertsApplication.csproj", "{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
