@@ -104,6 +104,10 @@ namespace TravelExpertsApplication
                 lblName.Text = "";
                 cboLoadList.Visible = false;
 
+                //read only for group box controls and search result
+                txtName.ReadOnly = true;
+                txtId.ReadOnly = true;
+
                 int inputID = Convert.ToInt32(txtInput.Text);
                 //search by product id
                 if (bProduct)
@@ -237,10 +241,14 @@ namespace TravelExpertsApplication
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //text box in group box is editable for update
-            addNew = false;
-            txtId.ReadOnly = false;
-            txtName.ReadOnly = false;
+            addNew = false;     //update the record
+
+            //text box in group box is editable for update            
+            txtId.ReadOnly = true;      //update not allowed to change ID
+            txtInput.ReadOnly = true;   //update not allowed to change ID
+
+            //update allowed to change name of product/supplier
+            txtName.ReadOnly = false; 
 
             if (bProduct)
             {
@@ -399,6 +407,22 @@ namespace TravelExpertsApplication
                     MessageBox.Show("You reach the first record of products list", "Out of Range");
                 }
             }
+        }
+
+        //event when save button is pressed
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //save the record to tables
+            //if Product ID is chosen and no ID is input, only save to products table
+            //if Product ID is chosen and there is ID in the input for search, save into 
+            //three tables(products, suppliers, and products_suppliers)
+
+            //if Supplier ID is chosen and no ID is input, only save to suppliers table
+            //if Supplier ID is chosen and there is ID in the input for search, save into
+            //three tables(products, suppliers, and products_suppliers)
+
+            this.ClearControls();   //reset the controls in form
+
         }
     }
 }

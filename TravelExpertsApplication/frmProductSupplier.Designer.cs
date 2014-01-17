@@ -33,8 +33,8 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdoProduct = new System.Windows.Forms.RadioButton();
             this.rdoSupplier = new System.Windows.Forms.RadioButton();
+            this.rdoProduct = new System.Windows.Forms.RadioButton();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.btnGet = new System.Windows.Forms.Button();
             this.cboLoadList = new System.Windows.Forms.ComboBox();
@@ -97,18 +97,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Choose ";
             // 
-            // rdoProduct
-            // 
-            this.rdoProduct.AutoSize = true;
-            this.rdoProduct.Location = new System.Drawing.Point(20, 19);
-            this.rdoProduct.Name = "rdoProduct";
-            this.rdoProduct.Size = new System.Drawing.Size(76, 17);
-            this.rdoProduct.TabIndex = 0;
-            this.rdoProduct.TabStop = true;
-            this.rdoProduct.Text = "Product ID";
-            this.rdoProduct.UseVisualStyleBackColor = true;
-            this.rdoProduct.CheckedChanged += new System.EventHandler(this.rdoProduct_CheckedChanged);
-            // 
             // rdoSupplier
             // 
             this.rdoSupplier.AutoSize = true;
@@ -120,6 +108,18 @@
             this.rdoSupplier.Text = "Supplier ID";
             this.rdoSupplier.UseVisualStyleBackColor = true;
             this.rdoSupplier.CheckedChanged += new System.EventHandler(this.rdoSupplier_CheckedChanged);
+            // 
+            // rdoProduct
+            // 
+            this.rdoProduct.AutoSize = true;
+            this.rdoProduct.Location = new System.Drawing.Point(20, 19);
+            this.rdoProduct.Name = "rdoProduct";
+            this.rdoProduct.Size = new System.Drawing.Size(76, 17);
+            this.rdoProduct.TabIndex = 0;
+            this.rdoProduct.TabStop = true;
+            this.rdoProduct.Text = "Product ID";
+            this.rdoProduct.UseVisualStyleBackColor = true;
+            this.rdoProduct.CheckedChanged += new System.EventHandler(this.rdoProduct_CheckedChanged);
             // 
             // txtInput
             // 
@@ -199,6 +199,7 @@
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
