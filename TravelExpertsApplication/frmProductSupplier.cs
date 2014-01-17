@@ -424,6 +424,53 @@ namespace TravelExpertsApplication
             //if Supplier ID is chosen and no ID is input, only save to suppliers table
             //if Supplier ID is chosen and there is ID in the input for search, save into
             //three tables(products, suppliers, and products_suppliers)
+            
+            //process the top part of the form
+
+            //save to products table
+            //if product ID is chosen and there is ID in the input
+            //
+            if (bProduct)
+            {   //check validation of two fields
+                if (Validator.IsPresent(txtInput) && Validator.IsPresent(txtSearchName))
+                {   //add new product
+                    if (addNew)
+                    {
+                        Product p = new Product();
+                        p.ProdName = txtSearchName.Text;
+                        p.ProductId = Convert.ToInt32(txtInput.Text);
+                        try
+                        {
+                            p.ProductId = ProductDB.AddProduct(p);
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                    else
+                    {
+                        //update product
+                        Product p = new Product();
+                        p.ProdName = txtSearchName.Text;
+                        p.ProductId = Convert.ToInt32(txtInput.Text);
+                        try
+                        {
+                            p.ProductId = ProductDB.UpdateProduct(p);
+                            this.DialogResult = DialogResult.OK;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+                    }
+                }
+            }
+            else
+            {
+            }
 
             this.ClearControls();   //reset the controls in form
 
