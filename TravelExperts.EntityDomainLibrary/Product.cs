@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelExperts.EntityDomainLibrary;
+
 /*****************************************************
  * Author: Chris & Yu Wen
  * Date: Jan 16, 2014

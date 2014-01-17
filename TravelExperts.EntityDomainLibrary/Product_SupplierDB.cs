@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace TravelExperts.EntityDomainLibrary
 {
-    public static class Product_SupplierDB
+    public  class Product_SupplierDB
     {
 
         public List<Product> GetAllProducts(int supplierId)

@@ -20,14 +20,14 @@ namespace TravelExperts.EntityDomainLibrary
         public static Supplier GetSupplierById(int supplierId)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
-            string selectStatement = "SELECT Supplier FROM Suppliers WHERE SupplierId = @SupplierId";
+            string selectStatement = "SELECT SupplierId,SupName FROM Suppliers WHERE SupplierId = @SupplierId";
 
             SqlCommand selectCommand =
                 new SqlCommand(selectStatement, connection);
-
+            selectCommand.Parameters.AddWithValue("@SupplierId", supplierId);
             try
             {
-                selectCommand.Parameters.AddWithValue("@SupplierId", supplierId);
+                connection.Open();
                 SqlDataReader supplierReader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (supplierReader.Read())
                 {
