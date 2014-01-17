@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelExperts.EntityDomainLibrary", "TravelExperts.EntityDomainLibrary\TravelExperts.EntityDomainLibrary.csproj", "{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseConnectionLayer", "DatabaseConnectionLayer\DatabaseConnectionLayer.csproj", "{317C3337-502C-42D2-8699-7BA3C83771D2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelExpertsApplication", "TravelExpertsApplication\TravelExpertsApplication.csproj", "{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94FBFB01-3F4C-4EE7-B7A8-7A727922E165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317C3337-502C-42D2-8699-7BA3C83771D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317C3337-502C-42D2-8699-7BA3C83771D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317C3337-502C-42D2-8699-7BA3C83771D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317C3337-502C-42D2-8699-7BA3C83771D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D8D27C9-A54C-414C-BC3C-1F90A9B9F956}.Release|Any CPU.ActiveCfg = Release|Any CPU

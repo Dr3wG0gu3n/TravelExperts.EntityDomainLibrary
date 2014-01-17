@@ -80,6 +80,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseConnectionLayer\DatabaseConnectionLayer.csproj">
+      <Project>{317c3337-502c-42d2-8699-7ba3c83771d2}</Project>
+      <Name>DatabaseConnectionLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TravelExperts.EntityDomainLibrary\TravelExperts.EntityDomainLibrary.csproj">
       <Project>{94fbfb01-3f4c-4ee7-b7a8-7a727922e165}</Project>
       <Name>TravelExperts.EntityDomainLibrary</Name>
