@@ -143,8 +143,9 @@ namespace TravelExpertsApplication
                         {
                             MessageBox.Show("There is no supplier available for this product", "No record");
                         }
-
+                        
                     }
+                    this.EnableEdit();
                 }
                 else                 
                 {
@@ -171,10 +172,12 @@ namespace TravelExpertsApplication
                         }
                         else
                         {
+                            
                             MessageBox.Show("There is no product available for this product", "No record");
                         }
                         
                     }
+                    this.EnableEdit();
                 }
                 
                 
@@ -541,20 +544,21 @@ namespace TravelExpertsApplication
         {
             if (rdoProduct.Checked == true)
             {
-                DialogResult result = MessageBox.Show("Delete " + supplier.Name + "?",
-                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    SupplierDB.DeleteSupplier(supplier);
-                }
-            }
-            else if (rdoSupplier.Checked == true)
-            {
                 DialogResult result = MessageBox.Show("Delete " + product.ProdName + "?",
                     "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     ProductDB.DeleteProduct(product);
+                }
+                
+            }
+            else if (rdoSupplier.Checked == true)
+            {
+                DialogResult result = MessageBox.Show("Delete " + supplier.Name + "?",
+                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    SupplierDB.DeleteSupplier(supplier);
                 }
             }
         }

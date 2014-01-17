@@ -94,10 +94,11 @@ namespace TravelExperts.EntityDomainLibrary
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
-            string insertStatement ="INSERT into Suppliers (SupName) VALUES (@Name)";
+            string insertStatement ="INSERT into Suppliers (SupplierId, SupName) VALUES (@SupplierId, @Name)";
 
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
 
+            insertCommand.Parameters.AddWithValue("@SupplierId", supplier.Id);
             insertCommand.Parameters.AddWithValue("@Name", supplier.Name);
       
             try
