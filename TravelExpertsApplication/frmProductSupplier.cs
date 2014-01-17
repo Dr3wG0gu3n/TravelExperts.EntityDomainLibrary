@@ -345,8 +345,7 @@ namespace TravelExpertsApplication
                     txtName.Text = supplier.Name;
                 }
                 else 
-                {
-                    btnNext.Enabled = false;
+                {                    
                     MessageBox.Show("You reach the last record of suppliers list","Out of Range");
                 }
             }
@@ -363,7 +362,6 @@ namespace TravelExpertsApplication
                 }
                 else
                 {
-                    btnNext.Enabled = false;
                     MessageBox.Show("You reach the last record of products list", "Out of Range");
                 }
             }
@@ -386,7 +384,7 @@ namespace TravelExpertsApplication
                 }
                 else
                 {
-                    btnNext.Enabled = false;
+                    
                     MessageBox.Show("You reach the first record of suppliers list", "Out of Range");
                 }
             }
@@ -402,8 +400,7 @@ namespace TravelExpertsApplication
                     txtName.Text = product.ProdName;
                 }
                 else
-                {
-                    btnNext.Enabled = false;
+                {                    
                     MessageBox.Show("You reach the first record of products list", "Out of Range");
                 }
             }
