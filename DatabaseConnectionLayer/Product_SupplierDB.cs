@@ -14,6 +14,7 @@ namespace TravelExperts.EntityDomainLibrary
     public static class Product_SupplierDB
     {
 
+        //a get all Products using the SupplierId
         public static List<Product> GetAllProducts(int supplierId)
         {
             List<Product> products = new List<Product>();
@@ -53,6 +54,7 @@ namespace TravelExperts.EntityDomainLibrary
             
         }
 
+        //get all suppliers using a Product Id
         public static List<Supplier> GetAllSuppliers(int productId)
         {
             List<Supplier> suppliers = new List<Supplier>();
@@ -90,7 +92,38 @@ namespace TravelExperts.EntityDomainLibrary
                 connection.Close();
             }
 
-            
+        }
+
+        public static bool InsertProduct_Supplier(int prodId, int suppId)
+        {
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string commandStatement = "INSERT INTO Products_Suppliers (ProductId, SupplierId) Values(@ProductId, @SupplierId)";
+           
+            SqlCommand command = new SqlCommand(commandStatement, connection);
+
+            command.Parameters.AddWithValue("@ProductId", prodId);
+            command.Parameters.AddWithValue("@SupplierId", suppId);
+            try
+            {
+                connection.Open();
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                    return true;
+                else return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

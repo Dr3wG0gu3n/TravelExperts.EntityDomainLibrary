@@ -12,7 +12,13 @@ namespace TravelExperts.EntityDomainLibrary
         public int Id { get; set; }
         public string Name { get; set; }
 
+        //constructors
         public Supplier() { }
+        public Supplier(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
         public Supplier(string name)
         {
             Name = name;

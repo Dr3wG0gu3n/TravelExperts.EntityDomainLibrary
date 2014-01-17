@@ -16,6 +16,38 @@ namespace TravelExperts.EntityDomainLibrary
     public static class SupplierDB
     {
 
+        //a method to get a list of all suppliers from the Datasource
+        public static List<Supplier> GetAllSuppliers()
+        {
+            List<Supplier> suppliers = new List<Supplier>();
+            Supplier sup;
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string selectStatement = "SELECT * FROM Suppliers";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    sup = new Supplier((int)reader[0], reader[1].ToString());       //read in the values and assign to
+                    suppliers.Add(sup);                                             //to new supplier object
+                }
+                return suppliers;                                                   //return the list of suppliers
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+               connection.Close();                                                 //close the connection
+            }
+        }
+
         //a Simple method to Get the Supplier using the SupplierId
         public static Supplier GetSupplierById(int supplierId)
         {
@@ -58,7 +90,7 @@ namespace TravelExperts.EntityDomainLibrary
         }
 
         //A method to Add a Supplier into the database, returning the newly created supplierId
-        public static int AddSupplier(Supplier supplier)
+        public static bool AddSupplier(Supplier supplier)
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
@@ -72,8 +104,10 @@ namespace TravelExperts.EntityDomainLibrary
             {
                 connection.Open();
 
-                int SupplierID = Convert.ToInt32(insertCommand.ExecuteScalar());    //returns the Id
-                return SupplierID;
+                int count = Convert.ToInt32(insertCommand.ExecuteScalar());
+                if (count > 0)                              //make sure the insert Supplier worked
+                    return true;
+                else return false;
             }
             catch (SqlException ex)
             {
