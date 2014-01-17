@@ -222,20 +222,27 @@ namespace TravelExpertsApplication
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //text box in group box is editable for add new record
-            addNew = true;
-            txtId.ReadOnly = false;
-            txtName.ReadOnly = false;
+            //If Product Radiobutton selected, Add new Product
+            if (rdoProduct.Checked)
+            {
+               
+                Product newProduct = new Product();
+                newProduct.ProdName = txtSearchName.Text;
+                int NewID = ProductDB.AddProduct(newProduct);
 
-            txtId.Text = "";
-            txtName.Text = "";
-            //product id
-            if (bProduct)
-                lblName.Text = "Suppliers List";
-            else
-                lblName.Text = "Products List";
-
-            //TODO: add new record
+                txtInput.Text = Convert.ToString(NewID);
+                txtSearchName.Text = newProduct.ProdName;
+                return;
+            }
+            // If Supplie Radiobutton selected, Add new Supplier
+            else if (rdoSupplier.Checked)
+            {
+                Supplier newSupplier = new Supplier();
+                newSupplier.Name = txtSearchName.Text;
+                newSupplier.Id = Convert.ToInt32(txtInput.Text);
+                SupplierDB.AddSupplier(newSupplier);
+                return;
+            }
 
         }
 

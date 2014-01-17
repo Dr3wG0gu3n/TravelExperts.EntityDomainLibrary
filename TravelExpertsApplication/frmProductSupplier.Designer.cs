@@ -235,7 +235,6 @@
             // 
             this.txtSearchName.Location = new System.Drawing.Point(247, 82);
             this.txtSearchName.Name = "txtSearchName";
-            this.txtSearchName.ReadOnly = true;
             this.txtSearchName.Size = new System.Drawing.Size(212, 20);
             this.txtSearchName.TabIndex = 18;
             // 

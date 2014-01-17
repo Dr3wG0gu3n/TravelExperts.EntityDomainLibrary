@@ -69,10 +69,8 @@ namespace TravelExperts
         {
             SqlConnection connection = TravelExpertsDB.GetConnection();
             //insert statement
-            string insertStatement =
-                "INSERT Products " +
-                "(ProdName) " +
-                "VALUES (@ProdName)";
+            string insertStatement = @"INSERT Products (ProdName) VALUES (@ProdName); SELECT SCOPE_IDENTITY()";
+                
             SqlCommand insertCommand =
                 new SqlCommand(insertStatement, connection);
             //set parameter for insert statement
@@ -82,7 +80,7 @@ namespace TravelExperts
             {
                 connection.Open();
                 //execute insert statement
-                insertCommand.ExecuteNonQuery();
+                int rowNumber = Convert.ToInt32(insertCommand.ExecuteScalar());
                 //get current position
                 string selectStatement =
                     "SELECT IDENT_CURRENT('Products') FROM Products";
