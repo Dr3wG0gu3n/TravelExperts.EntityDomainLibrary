@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace TravelExperts.EntityDomainLibrary
 {
-    public  class Product_SupplierDB
+    public static class Product_SupplierDB
     {
 
-        public List<Product> GetAllProducts(int supplierId)
+        public static List<Product> GetAllProducts(int supplierId)
         {
             List<Product> products = new List<Product>();
             Product product;
@@ -53,7 +53,7 @@ namespace TravelExperts.EntityDomainLibrary
             
         }
 
-        public List<Supplier> GetAllSuppliers(int productId)
+        public static List<Supplier> GetAllSuppliers(int productId)
         {
             List<Supplier> suppliers = new List<Supplier>();
             Supplier supplier;

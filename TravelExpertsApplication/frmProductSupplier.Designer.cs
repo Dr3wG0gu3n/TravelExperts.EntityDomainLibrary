@@ -75,7 +75,7 @@
             this.txtId.Location = new System.Drawing.Point(139, 30);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(65, 20);
+            this.txtId.Size = new System.Drawing.Size(74, 20);
             this.txtId.TabIndex = 2;
             // 
             // txtName
@@ -83,7 +83,7 @@
             this.txtName.Location = new System.Drawing.Point(139, 68);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(166, 20);
+            this.txtName.Size = new System.Drawing.Size(183, 20);
             this.txtName.TabIndex = 3;
             // 
             // groupBox1
@@ -143,7 +143,7 @@
             this.cboLoadList.FormattingEnabled = true;
             this.cboLoadList.Location = new System.Drawing.Point(139, 104);
             this.cboLoadList.Name = "cboLoadList";
-            this.cboLoadList.Size = new System.Drawing.Size(121, 21);
+            this.cboLoadList.Size = new System.Drawing.Size(211, 21);
             this.cboLoadList.TabIndex = 7;
             // 
             // lblName
@@ -162,6 +162,7 @@
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "&Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label3
             // 
@@ -179,6 +180,7 @@
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -216,6 +218,7 @@
             this.btnPrevious.TabIndex = 15;
             this.btnPrevious.Text = "<<";
             this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnNext
             // 
@@ -225,6 +228,7 @@
             this.btnNext.TabIndex = 16;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // txtSearchName
             // 
