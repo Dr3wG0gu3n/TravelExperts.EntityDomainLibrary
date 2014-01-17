@@ -50,6 +50,7 @@
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.lblSearchName = new System.Windows.Forms.Label();
             this.gboxInfo = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gboxInfo.SuspendLayout();
             this.SuspendLayout();
@@ -156,7 +157,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(39, 343);
+            this.btnAdd.Location = new System.Drawing.Point(12, 343);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 9;
@@ -174,7 +175,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(129, 343);
+            this.btnUpdate.Location = new System.Drawing.Point(95, 343);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 11;
@@ -184,7 +185,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(220, 343);
+            this.btnDelete.Location = new System.Drawing.Point(176, 343);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 12;
@@ -194,7 +195,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(301, 343);
+            this.btnSave.Location = new System.Drawing.Point(257, 343);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 13;
@@ -204,7 +205,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(392, 343);
+            this.btnExit.Location = new System.Drawing.Point(419, 343);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 14;
@@ -264,11 +265,21 @@
             this.gboxInfo.TabStop = false;
             this.gboxInfo.Text = "Suppliers";
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(338, 343);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 20;
+            this.btnClear.Text = "&Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
             // frmProductSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 395);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.gboxInfo);
             this.Controls.Add(this.txtSearchName);
             this.Controls.Add(this.lblSearchName);
@@ -317,6 +328,7 @@
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.Label lblSearchName;
         private System.Windows.Forms.GroupBox gboxInfo;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
