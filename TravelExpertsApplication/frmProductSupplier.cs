@@ -70,6 +70,7 @@ namespace TravelExpertsApplication
 
             gboxInfo.Text = "Products";
             lblName.Text = "Suppliers List";
+            lblName.Visible = false;
         }
         //search for product id
         private void rdoProduct_CheckedChanged(object sender, EventArgs e)
@@ -80,6 +81,7 @@ namespace TravelExpertsApplication
 
             gboxInfo.Text = "Suppliers";
             lblName.Text = "Products List";
+            lblName.Visible = false;
         }
 
         private void ClearControls()
@@ -92,6 +94,7 @@ namespace TravelExpertsApplication
             btnUpdate.Enabled= false;        
             btnDelete.Enabled = false;
             btnSave.Enabled = false;
+            lblName.Visible = false;
             txtInput.Focus();
         }
 
@@ -107,6 +110,10 @@ namespace TravelExpertsApplication
                 //read only for group box controls and search result
                 txtName.ReadOnly = true;
                 txtId.ReadOnly = true;
+
+                //reset text fields in group box
+                txtName.Text = "";
+                txtId.Text = "";
 
                 int inputID = Convert.ToInt32(txtInput.Text);
                 //search by product id
@@ -253,14 +260,11 @@ namespace TravelExpertsApplication
             //text box in group box is editable for update            
             txtId.ReadOnly = true;      //update not allowed to change ID
             txtInput.ReadOnly = true;   //update not allowed to change ID
-
-            //update allowed to change name of product/supplier
-            txtName.ReadOnly = false; 
-
+            
             if (bProduct)
             {
                 lblName.Text = "Suppliers List";
-                lblName.Visible = true;
+                lblName.Visible = false;
                 cboLoadList.Visible = true;
                 //load list of suppliers here                
                 //have to define which supplier is located first before change it
@@ -271,11 +275,11 @@ namespace TravelExpertsApplication
             else
             {
                 lblName.Text = "Products List";
-                lblName.Visible = true;
-                cboLoadList.Visible = true;
+                lblName.Visible = false;
+                cboLoadList.Visible = false;
+
                 //load list products here                
                 //have to define which product is located first before change it
-
                 this.LoadProducts();
                 this.ShowProductCombox();
             }
@@ -458,8 +462,17 @@ namespace TravelExpertsApplication
                         p.ProductId = Convert.ToInt32(txtInput.Text);
                         try
                         {
-                            p.ProductId = ProductDB.UpdateProduct(p);
-                            this.DialogResult = DialogResult.OK;
+                            if (! ProductDB.UpdateProduct(p))
+                            {
+                                MessageBox.Show("Another product has updated or " +
+                                    "deleted that product.", "Database Error");
+                                this.DialogResult = DialogResult.Retry;
+                            }
+                            else
+                            {
+                                product = p;
+                                this.DialogResult = DialogResult.OK;
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -470,6 +483,53 @@ namespace TravelExpertsApplication
             }
             else
             {
+                //check validation of two fields
+                if (Validator.IsPresent(txtInput) && Validator.IsPresent(txtSearchName))
+                {   //add new product
+                    if (addNew)
+                    {
+                        Supplier s = new Supplier();
+                        s.Name = txtSearchName.Text;
+                        s.Id = Convert.ToInt32(txtInput.Text);
+                        try
+                        {
+                            if (SupplierDB.AddSupplier(s))
+                            {
+                                this.DialogResult = DialogResult.OK;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+
+                    }
+                    else
+                    {
+                        //update product
+                        Supplier s = new Supplier();
+                        s.Name = txtSearchName.Text;
+                        s.Id = Convert.ToInt32(txtInput.Text);
+                        try
+                        {
+                            if (!SupplierDB.UpdateSupplier(s.Id,s.Name))
+                            {
+                                MessageBox.Show("Another supplier has updated or " +
+                                    "deleted that supplier.", "Database Error");
+                                this.DialogResult = DialogResult.Retry;
+                            }
+                            else
+                            {
+                                supplier= s;
+                                this.DialogResult = DialogResult.OK;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ex.GetType().ToString());
+                        }
+                    }
+                }
             }
 
             this.ClearControls();   //reset the controls in form
@@ -497,6 +557,11 @@ namespace TravelExpertsApplication
                     ProductDB.DeleteProduct(product);
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearControls();
         }
     }
 }
