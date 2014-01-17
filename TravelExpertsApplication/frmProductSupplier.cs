@@ -428,5 +428,28 @@ namespace TravelExpertsApplication
             this.ClearControls();   //reset the controls in form
 
         }
+
+        //this part of the form coded by Andew
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (rdoProduct.Checked == true)
+            {
+                DialogResult result = MessageBox.Show("Delete " + supplier.Name + "?",
+                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    SupplierDB.DeleteSupplier(supplier);
+                }
+            }
+            else if (rdoSupplier.Checked == true)
+            {
+                DialogResult result = MessageBox.Show("Delete " + product.ProdName + "?",
+                    "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    ProductDB.DeleteProduct(product);
+                }
+            }
+        }
     }
 }

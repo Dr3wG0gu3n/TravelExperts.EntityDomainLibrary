@@ -100,8 +100,7 @@ namespace TravelExperts
         }
 
         //method to update product information based on given ProductId
-        public static bool UpdateProduct(int productId,
-            Product newProduct)
+        public static bool UpdateProduct(Product newProduct)
         {
             //connect database
             SqlConnection connection = TravelExpertsDB.GetConnection();
@@ -116,7 +115,7 @@ namespace TravelExperts
             updateCommand.Parameters.AddWithValue(
                "@NewName", newProduct.ProdName);
             updateCommand.Parameters.AddWithValue(
-                "@productId", productId);
+                "@productId", newProduct.ProductId);
 
             try
             {
